@@ -1,3 +1,8 @@
+import os
+from pickle import TRUE
+from django.conf import settings
+from django.conf.urls.static import static
+
 """
 Django settings for ong project.
 
@@ -23,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w%&brm010+obgi&^la+dmepkolya)-v*7u2cud=sv8k3_6d3ys'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = TRUE
 
 ALLOWED_HOSTS = []
 
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'ong.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,9 +120,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+print("###",os.path.join(BASE_DIR, "static"))
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL= "/media/"
+
+MEDIA_ROOT= "/media/"
