@@ -6,9 +6,9 @@ from .base import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Grupal',
+        'NAME': 'postgres2',
         'USER': 'postgres',
-        'PASSWORD': '6yoHPsCkgL9Z6DCRcmhq',
+        'PASSWORD': 'Proyectopgs2022!',
         'HOST': 'localhost',
         'PORT': '5432',
     }

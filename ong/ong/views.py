@@ -5,16 +5,23 @@ def inicio(request):
 	template_name = 'inicio.html'
 
 	eventos = Evento.objects.all()
-	print(eventos)
 
 	ctx = {
 		'eventos': eventos,
 	}
 	return render (request, template_name, ctx)
 
-def login(request):
-    template_name = 'login.html'
+def registro(request):
+    template_name = 'registro.html'
     
     ctx={}
     
     return render(request, template_name, ctx)
+
+def perfil(request):
+    template_name = 'perfil.html'
+    
+    ctx={}
+    
+    return render(request, template_name, ctx)
+
