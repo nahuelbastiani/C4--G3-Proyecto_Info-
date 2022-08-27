@@ -13,3 +13,16 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
+# Nahuel Local
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ong',
+#         'USER': 'postgres',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
