@@ -15,9 +15,19 @@ class Evento(models.Model):
     lugar = models.CharField(max_length=255)
     detalles = models.CharField(max_length=255)
     id_usuario= models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
+
+    def __str__(self):
+        fila = f'Evento: {self.titulo}'
+        return fila
     
 class Asistencia(models.Model):
     id_Asistencia = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     id_Usuario = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
     id_Evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+
+    def __str__(self):
+        fila = f'Evento: {self.id_evento}'
+        return fila
+
+
 
