@@ -3,32 +3,33 @@ html
 	font-size: 16px;
 }
 
-h1
-{
-	font-family: "Freestyle Script";
-	color: #702121;
-	font-size: 7rem;
-	text-align: right;
-}
+
 h2
 {
 	font-family: sans-serif;
 	color: black;
-	font-size: 2.25rem;
-	text-align: right;
+	font-size: 2rem;
+	position: relative;
 }
 h3
 {
 	font-family: sans-serif;
 	color: black;
-	font-size: 1.25rem;
+	font-size: 1.2rem;
 	text-align: right;
 }
 h4
 {
 	font-family: sans-serif;
 	color: black;
-	font-size: 1.25rem;
+	font-size: 1.2rem;
+	text-align: right;
+}
+h5
+{
+	font-family: "Freestyle Script";
+	color: #702121;
+	font-size: 2.5rem;
 	text-align: right;
 }
 .social-bar {
