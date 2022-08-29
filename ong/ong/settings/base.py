@@ -33,6 +33,12 @@ LOGIN_REDIRECT_URL = reverse_lazy("inicio")
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
+# login y logout
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "/inicio"
+LOGOUT_REDIRECT_URL = "/inicio"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -70,6 +76,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'base_tag': 'usuarios.templatetags.tags'
+            }
         },
     },
 ]
@@ -115,3 +124,6 @@ STATICFILES_DIR = (
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "media/"
