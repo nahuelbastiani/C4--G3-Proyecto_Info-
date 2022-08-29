@@ -15,6 +15,59 @@
 </head>
 
 <body>
+
+{% if user.is_authenticated %}
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ONG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'eventos:listaEvento' %}">Lista de eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'eventos:perfil' %}">Perfil</a>
+          </li>
+        </ul>
+
+        <a href="{% url 'logout' %}"><button class="w-100 btn btn-lg btn-primary" type="button" style="margin:10px;">Cerrar sesion</button></a>
+
+      </div>
+    </div>
+  </nav>
+
+{% else %}
+
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ONG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'eventos:listaEvento' %}">Lista de eventos</a>
+          </li>
+          </li>
+        </ul>
+
+        <a href="{% url 'login' %}"><button class="w-100 btn btn-lg btn-primary" type="button" style="margin:10px;">Iniciar sesion</button></a>
+
+      </div>
+    </div>
+  </nav>
+        
+{% endif %}
     
 <div class="col-lg-8 mx-auto p-3 py-md-5">
   <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
@@ -22,14 +75,9 @@
       <span class="fs-4">
         <section align-items-center text-dark text-decoration-none>
 
-
-          <a href="{% url 'eventos:listaEvento' %}"><button class="btn btn-primary" type="button">
-            Lista de eventos
-          </button></a>
-
           {% if user.is_authenticated %}
 
-          <a href="{% url 'logout' %}"><button class="w-100 btn btn-lg btn-primary" type="button" style="margin:10px;">Cerrar sesion</button></a>
+          
 
           {% else %}
 
