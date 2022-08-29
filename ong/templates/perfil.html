@@ -1,4 +1,5 @@
 {% load tags %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,46 +21,59 @@
 		<a href="inicio.html">inicio</a>
 		<a href="/">eventos</a>
 		</nav>
-		
+
 	{% block contenido %}
+
+
 		</div>
-            <div class="container">
-                <h2 class="text-center">Mis Eventos</h2>
-                <hr>
-                <div class="mx-10">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Proximo evento</h5>
-                            <p class="card-text">Este es el detalle del evento</p>
-                            <button type="button" class="btn btn-dark btn-sm">Editar evento</button>
-                            <button type="button" class="btn btn-danger btn-sm">Eliminar evento</button>
-                    </div>
+			<div class="container">
+				<h2 class="text-center">Mis Eventos</h2>
+				<hr>
+				{% for e in eventos %}
+				<div class="mx-10">
+						<div class="card mb-4">
+							<div class="card-body">
+								<h5 class="card-title">{{e.titulo}}</h5>
+								<p class="card-text">Este es el detalle del evento</p>
+								<button type="button" class="btn btn-dark btn-sm">Editar evento
+								</button>
+													<!-- Button trigger modal -->
+								<button type="button" class="btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+									  Eliminar evento
+								</button>
 
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Proximo evento</h5>
-                            <p class="card-text">Este es el detalle del evento</p>
-                        </div>
-                    </div>
+									<!-- Modal -->
+									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+								
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										  </div>
+										  <div class="modal-body">
+										  <p>¿Estas seguro/a de eliminar el evento?</p>
+										  </div>
+										  <div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+											<button type="button" class="btn btn-danger">Confirmar</button>
+										  </div>
+										</div>
+									  </div>
+									</div>
 
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Proximo evento</h5>
-                            <p class="card-text">Este es el detalle del evento</p>
-                        </div>
-                    </div>
-
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Proximo evento</h5>
-                            <p class="card-text">Este es el detalle del evento</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+							</div>
+						</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% include 'listar.html' %}
 	{% endblock contenido %}
+
+
+
+
+
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->

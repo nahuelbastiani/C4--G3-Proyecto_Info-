@@ -11,13 +11,14 @@ class Evento(models.Model):
     categoria = models.CharField(max_length=255)
     fecha = models.DateField()
     entrada = models.IntegerField()
-    modalidad = models.BooleanField()
+    modalidad = models.BooleanField(verbose_name = 'Es presencial')
     lugar = models.CharField(max_length=255)
     detalles = models.CharField(max_length=255)
     id_usuario= models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
 
+
     def __str__(self):
-        fila = f'Evento: {self.titulo}'
+        fila = f'{self.titulo}'
         return fila
     
 class Asistencia(models.Model):
@@ -26,7 +27,7 @@ class Asistencia(models.Model):
     id_Evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
 
     def __str__(self):
-        fila = f'Evento: {self.id_evento}'
+        fila = f'Evento: {self.id_Evento}'
         return fila
 
 
