@@ -8,5 +8,6 @@ app_name = 'eventos'
 urlpatterns = [
     path('perfil/', views.perfil, name= 'perfil'),
     path('listar/', views.Listar.as_view(), name= 'listar'),
+    path('listaEvento/', views.listarEventos, name= 'listaEvento'),
     #path('eliminarEvento/<pk>', views.eliminar, name = 'eliminarEvento')
 ]

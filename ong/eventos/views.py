@@ -1,11 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Evento
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
+from .forms import Asistir
+from pyexpat.errors import messages
 
 
 def perfil(request):
@@ -46,3 +48,28 @@ class Listar(ListView):
 	evento.delete()
 
 	render (request, 'perfil.html', ctx)"""
+
+def listarEventos(request):
+	template_name = 'eventos/listaEvento.html'
+	form = Asistir(initial={'id_id_Usuario':'mercadillo@mail.com', 'id_Evento':'s'})
+	print('formmmmmmmm', form)
+	eventos = Evento.objects.all().values('id_evento','titulo', 'categoria')
+	
+	print(eventos) 
+
+	if request.method =="POST":
+		#asistencia = Asistencia(id_Evento=)
+		form = Asistir(request.POST)
+		# form.id_Usuario = get_object_or_404(Usuario, pk=request.user.pk)
+		# form.id_Evento = request.POST.get('event_id')
+		# print('id eventoooooooo', request.POST.get('event_id'))
+		# print('formmmmmmmmmm', form.id_Usuario)
+		if form.is_valid():
+			form.save()
+
+	ctx = {
+		'eventos': eventos,
+		'form':form
+	}
+	print('contextoo', ctx)
+	return render (request, template_name, ctx)

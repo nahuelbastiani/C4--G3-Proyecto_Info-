@@ -22,7 +22,12 @@
       <span class="fs-4">
         <section align-items-center text-dark text-decoration-none>
 
-          {% if username.is_authenticated %}
+
+          <a href="{% url 'eventos:listaEvento' %}"><button class="btn btn-primary" type="button">
+            Lista de eventos
+          </button></a>
+
+          {% if user.is_authenticated %}
 
           <a href="{% url 'logout' %}"><button class="w-100 btn btn-lg btn-primary" type="button" style="margin:10px;">Cerrar sesion</button></a>
 
@@ -31,6 +36,8 @@
           <a href="{% url 'login' %}"><button class="btn btn-primary" type="button">
             Iniciar sesion
           </button></a>
+
+
 
           {% endif %}
 

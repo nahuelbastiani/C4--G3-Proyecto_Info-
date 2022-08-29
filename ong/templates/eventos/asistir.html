@@ -1,0 +1,9 @@
+{% extends 'eventos/listar' %}
+
+<form method="post"> {% csrf_token %}
+
+    {{form.id_eventos}}
+    <button type="submit" class="post"> ¿Desea asistir? </button>
+</form>
+
+{% block content %}
